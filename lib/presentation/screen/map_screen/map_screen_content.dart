@@ -17,7 +17,7 @@ class MapScreenContent extends StatelessWidget {
           fit: BoxFit.cover,
             width: Adaptive.w(100),
             height: Adaptive.h(100),
-            image:NetworkImage(
+            image:AssetImage(
               AppImages.mapImage,
             )
         ),
@@ -32,7 +32,7 @@ class MapScreenContent extends StatelessWidget {
                   decoration: InputDecoration(
                     suffixIcon: IconButton.filledTonal(
                         onPressed:(){},
-                        style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.yellow)),
+                        style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.yellow)),
                         icon:const Icon(Icons.location_on_outlined,color: Colors.white,size: 30,)),
                     prefixIcon: Icon(Icons.search,color: Colors.yellow,size: 40.px,),
                     hintText: 'Search event discounts...',
@@ -113,13 +113,13 @@ class MapScreenContent extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15.0),
+          padding:  EdgeInsets.symmetric(vertical: 3.0.h),
           ///return
           child: CarouselSlider.builder(
             itemCount:recommendedList.length,
             options:CarouselOptions(
-              viewportFraction: 0.6,
-              height: 39.h,
+              viewportFraction: 0.55,
+              height: 41.h,
               enableInfiniteScroll: false,
               enlargeCenterPage: true,
               scrollDirection: Axis.horizontal,
@@ -138,10 +138,10 @@ class MapScreenContent extends StatelessWidget {
                 ClipRRect(
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
                   child: SizedBox(
-                    height: Adaptive.h(20),
+                    height: 20.h,
                     width: double.infinity,
                     child: Image(
-                      image:NetworkImage(
+                      image:AssetImage(
                           recommendedList[index].image
                       ),
                       fit: BoxFit.fill,

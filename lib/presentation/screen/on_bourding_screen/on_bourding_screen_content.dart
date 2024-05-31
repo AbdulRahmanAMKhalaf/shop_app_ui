@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shop_app_ui/cores/utils/on_bourding_model/on_bourding_model.dart';
+import 'package:shop_app_ui/presentation/controller/navigation_bloc.dart';
 import 'package:shop_app_ui/presentation/screen/navigation_screen/navigationscreen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -25,7 +27,7 @@ class OnBourdingScreenContent extends StatelessWidget {
                     child: Image(
                       filterQuality: FilterQuality.high,
                       fit: BoxFit.fill,
-                      image: NetworkImage(onBourdingList[index].image),
+                      image: AssetImage(onBourdingList[index].image),
                     ),
                   ),
                   SizedBox(
@@ -81,7 +83,9 @@ class OnBourdingScreenContent extends StatelessWidget {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const NavigationScreen(),
+                    builder: (context) => BlocProvider(
+                       create: (context) => NavigationBloc(),
+                        child: const NavigationScreen()),
                   ),
                       (route) => false);
             },

@@ -25,7 +25,7 @@ class HomeContainerChild extends StatelessWidget {
                     fit: BoxFit.fill,
                     filterQuality: FilterQuality.high,
                     image:
-                    NetworkImage(recommendedList[index].image),
+                    AssetImage(recommendedList[index].image),
                   ),
                 ),
               ),

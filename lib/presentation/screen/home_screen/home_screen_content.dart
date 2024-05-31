@@ -42,7 +42,7 @@ class HomeScreenContent extends StatelessWidget {
                 IconButton.filledTonal(
                     style: ButtonStyle(
                         backgroundColor:
-                            MaterialStatePropertyAll(Colors.yellow.shade600)),
+                            WidgetStatePropertyAll(Colors.yellow.shade600)),
                     onPressed: () {},
                     icon: Icon(
                       Icons.notifications_outlined,
@@ -125,7 +125,7 @@ class HomeScreenContent extends StatelessWidget {
                           height: 10.h,
                           width: 15.w,
                           child: Image(
-                            image: NetworkImage(categoryList[index].image),
+                            image: AssetImage(categoryList[index].image),
                             fit: BoxFit.fill,
                           ),
                         ),

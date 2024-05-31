@@ -8,15 +8,20 @@ class NavigationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: navList,
-        currentIndex:NavigationBloc.index,
-        onTap: (value) {
-          NavigationBloc.bloc(context).add(ChangeNavEvent(index: value));
-        },
-      ),
-      body: screens[NavigationBloc.index],
+    var bloc = context.read<NavigationBloc>();
+    return BlocBuilder<NavigationBloc, NavigationState>(
+      builder: (context, state) {
+        return Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            items: navList,
+            currentIndex: bloc.index,
+            onTap: (value) {
+              bloc.add(ChangeNavEvent(index: value));
+            },
+          ),
+          body: screens[bloc.index],
+        );
+      },
     );
   }
 }
